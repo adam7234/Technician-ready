@@ -5,3 +5,5 @@ header_pages:
   - paths.md
   - proof.md
   - about.md
+
+baseurl: "/maintenance-ready"
