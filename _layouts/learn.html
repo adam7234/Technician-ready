@@ -4,37 +4,55 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{{ page.title }} | {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/main.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-  <header class="topbar">
-    <a class="brand" href="{{ site.baseurl }}/"> Technician Ready</a>
 
-    <nav class="nav" id="nav">
-      <a href="{{ site.baseurl }}/learn">Learn</a>
-      <a href="{{ site.baseurl }}/skills">Show Skills</a>
-      <a href="{{ site.baseurl }}/test">Test</a>
-      <a href="{{ site.baseurl }}/about">About</a>
+  <header class="sticky-top bg-white border-bottom">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container py-2">
+        <a class="navbar-brand fw-bold" href="{{ site.baseurl }}/">Technician Ready</a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-lg-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}/learn">Learn</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}/skills">Show Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}/test">Test</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}/about">About</a></li>
+          </ul>
+
+          <div class="d-flex gap-2 mt-3 mt-lg-0">
+            <a class="btn btn-primary fw-semibold" href="{{ site.baseurl }}/learn">Get started</a>
+          </div>
+        </div>
+      </div>
     </nav>
-
-    <div class="actions">
-      <a class="btn" href="{{ site.baseurl }}/learn">Get started </a>
-      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
   </header>
 
-  <main class="container learn-layout">
-    <aside class="learn-sidebar" aria-label="Learn navigation">
-      {% include learn_nav.html %}
-    </aside>
+  <main class="container py-5">
+    <div class="row g-4">
+      <aside class="col-lg-3" aria-label="Learn navigation">
+        <div class="card shadow-sm position-sticky" style="top: 24px;">
+          <div class="card-body">
+            {% include learn_nav.html %}
+          </div>
+        </div>
+      </aside>
 
-    <section class="learn-content">
-      {{ content }}
-    </section>
+      <section class="col-lg-9">
+        {{ content }}
+      </section>
+    </div>
   </main>
 
-  <script src="{{ site.baseurl }}/assets/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
